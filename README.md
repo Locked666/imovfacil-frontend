@@ -1,21 +1,43 @@
-# React + TypeScript + Vite + shadcn/ui
+# ImovFacil Marketplace Frontend
 
-This is a template for a new Vite project with React, TypeScript, and shadcn/ui.
+Frontend inicial do **ImovFacil Marketplace**, construído com React, TypeScript, Vite, TailwindCSS, shadcn/ui, TanStack Query, Zustand, React Router DOM, React Hook Form, Zod e Mapbox GL JS.
 
-## Adding components
+## Objetivo desta base
 
-To add components to your app, run the following command:
+- Estruturar a homepage split-view com filtros, mapa e listagem lateral
+- Preparar autenticação frontend com Better Auth via Fetch API nativa
+- Organizar suporte multi-tenant com `x-organization-id`
+- Criar dashboards público, tenant e admin com roteamento protegido
+- Documentar as pendências de backend identificadas no MVP
+
+## Como executar
+
+1. Instale as dependências.
+2. Configure o arquivo `.env`.
+3. Inicie o ambiente de desenvolvimento.
 
 ```bash
-npx shadcn@latest add button
+npm install
+npm run dev
 ```
 
-This will place the ui components in the `src/components` directory.
+## Variáveis de ambiente
 
-## Using components
+Copie `.env.example` para `.env` e ajuste os valores conforme seu ambiente local.
 
-To use the components in your app, import them as follows:
+## Observações importantes
 
-```tsx
-import { Button } from "@/components/ui/button"
-```
+- O frontend usa `credentials: "include"` em todas as chamadas de API.
+- A camada de imóveis do MVP inicial usa dados mockados no frontend porque os endpoints de imóveis não foram fornecidos no PRD.
+- Os arquivos `page_home.html`, `page_login.html` e `page_singup.html` não estavam presentes no repositório; a implementação visual foi baseada na descrição funcional do PRD.
+
+## Estrutura
+
+- `src/app`: inicialização, providers e router
+- `src/components`: UI, layout, mapa, imóveis, filtros, auth e componentes comuns
+- `src/pages`: páginas públicas, auth, property, dashboard e admin
+- `src/routes`: guards, error boundary e roteamento
+- `src/services`: wrapper de fetch e serviços da API
+- `src/stores`: estado global com Zustand
+- `docs`: arquitetura e pendências
+
