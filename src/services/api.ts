@@ -76,6 +76,10 @@ export async function request<T>(
     requestHeaders.set("Accept", "application/json")
   }
 
+  if (!requestHeaders.has("Origin")) {
+    requestHeaders.set("Origin", appEnv.appOriginUrl)
+  }
+
   if (!skipTenantHeader && activeOrganizationId) {
     requestHeaders.set("x-organization-id", activeOrganizationId)
   }
@@ -118,4 +122,3 @@ export async function request<T>(
 
   return payload as T
 }
-
